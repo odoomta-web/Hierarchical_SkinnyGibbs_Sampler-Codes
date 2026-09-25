@@ -72,23 +72,4 @@ Sampler for Model Selection,"* JASA:
    active-covariate set, and saves an aggregated results table to
    `results/result_p_<p>_<p_act>.RData`.
 
-   **Note:** `run_model_comparison.R` loads from a specific path
-   (`data/p500_8set2case2_0.5/...`). Make sure this matches the scenario you
-   generated in step 2 (edit the `load()` path or the loop indices in
-   `generate_datasets.R` so the two agree).
 
-## Notes on this cleanup
-
-This version of the code has been reorganized and lightly corrected relative to
-earlier drafts:
-- Fixed `run_model_comparison.R` saving the wrong object at the end (it was
-  saving the last simulated dataset instead of the aggregated results table).
-- Removed a dead/unused `tau0_2` argument from `hegpg_func()` and an unused
-  intermediate variable.
-- Simplified an algebraically-equivalent but far more expensive matrix
-  expression in `hsgpg_func()`'s `gammaZ` update.
-- Fixed a latent-variable bug in `logit_data()` (supplementary data generator)
-  that relied on an undefined local variable.
-- Added an explicit error message in `gen_p()` for unsupported inputs instead
-  of a downstream, harder-to-diagnose failure.
-- Renamed files for clarity and moved them into an `R/` subdirectory.
